@@ -40,6 +40,7 @@
           "tipo": "externo",
           "url": "https://www.youtube.com/@angelgarciadatablog",
           "icono": "youtube",
+          "destacado": true,
           "activo": true
         },
         {
@@ -49,6 +50,7 @@
           "tipo": "externo",
           "url": "https://whatsapp.com/channel/0029VbD6rByCBtx6VU7IPi24",
           "icono": "canal",
+          "destacado": true,
           "activo": true
         },
         {
