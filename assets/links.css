@@ -96,6 +96,48 @@ body::before {
   margin-right: auto;
 }
 
+/* SECCIONES */
+.secciones {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.seccion-titulo {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-texto-suave);
+  margin-bottom: 12px;
+  padding-left: 2px;
+}
+
+.seccion-descripcion {
+  font-size: 13.5px;
+  color: var(--color-texto-cuerpo);
+  margin-top: -6px;
+  margin-bottom: 12px;
+  padding-left: 2px;
+}
+
+/* La sección de campaña es la que recibe el trafico de TikTok:
+   se separa del resto con un marco propio y el titulo en color de acento. */
+.seccion--campana {
+  padding: 20px 18px 18px;
+  border: 1px solid rgba(37, 99, 235, 0.30);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.07) 0%, rgba(37, 99, 235, 0) 100%);
+}
+
+.seccion--campana .seccion-titulo {
+  color: var(--color-acento);
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
 /* BOTONES */
 .lista-botones {
   display: flex;
@@ -226,6 +268,14 @@ body::before {
 @media (max-width: 520px) {
   .links-page {
     padding: 40px 16px 48px;
+  }
+
+  .secciones {
+    gap: 28px;
+  }
+
+  .seccion--campana {
+    padding: 18px 14px 16px;
   }
 
   .perfil-avatar {

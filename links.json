@@ -1,7 +1,9 @@
 {
-  "_comentario": "Fuente de verdad de la pagina. Editar SOLO este archivo para cambiar botones o campana. Ver README.md.",
+  "_comentario": "Fuente de verdad de la pagina. Editar SOLO este archivo. Ver README.md.",
 
   "campana_activa": "sql",
+
+  "orden_secciones": ["personales", "campana", "permanentes"],
 
   "perfil": {
     "nombre": "Angel Garcia",
@@ -15,138 +17,196 @@
     "_nota": "Solo digitos, con codigo de pais y sin +. Ej Peru: 51987654321"
   },
 
-  "botones": [
-    {
-      "id": "asesoria-full-day-sql",
-      "titulo": "Asesoria full day de SQL",
-      "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
-      "tipo": "whatsapp",
-      "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de SQL (4 horas).",
-      "icono": "whatsapp",
-      "destacado": true,
-      "activo": true,
-      "campanas": ["sql"]
+  "secciones": {
+    "personales": {
+      "titulo": "Donde encontrarme",
+      "descripcion": "",
+      "botones": [
+        {
+          "id": "web-blog",
+          "titulo": "Mi blog",
+          "subtitulo": "angelgarciadatablog.com",
+          "tipo": "externo",
+          "url": "https://www.angelgarciadatablog.com/",
+          "icono": "web",
+          "activo": true
+        },
+        {
+          "id": "youtube",
+          "titulo": "YouTube",
+          "subtitulo": "Tutoriales completos de datos y cloud",
+          "tipo": "externo",
+          "url": "https://www.youtube.com/@angelgarciadatablog",
+          "icono": "youtube",
+          "activo": true
+        },
+        {
+          "id": "canal-whatsapp",
+          "titulo": "Canal de WhatsApp",
+          "subtitulo": "Aviso cuando publico algo nuevo",
+          "tipo": "externo",
+          "url": "https://whatsapp.com/channel/0029VbD6rByCBtx6VU7IPi24",
+          "icono": "canal",
+          "activo": true
+        },
+        {
+          "id": "instagram",
+          "titulo": "Instagram",
+          "subtitulo": "",
+          "tipo": "externo",
+          "url": "PENDIENTE_LINK_INSTAGRAM",
+          "icono": "instagram",
+          "activo": true
+        },
+        {
+          "id": "tiktok",
+          "titulo": "TikTok",
+          "subtitulo": "",
+          "tipo": "externo",
+          "url": "PENDIENTE_LINK_TIKTOK",
+          "icono": "tiktok",
+          "activo": true
+        },
+        {
+          "id": "linkedin",
+          "titulo": "LinkedIn",
+          "subtitulo": "",
+          "tipo": "externo",
+          "url": "https://www.linkedin.com/in/angelgarciachanga/",
+          "icono": "linkedin",
+          "activo": true
+        }
+      ]
     },
-    {
-      "id": "proyecto-sql-gratuito",
-      "titulo": "Proyecto de SQL gratuito",
-      "subtitulo": "El proyecto completo, paso a paso en video",
-      "tipo": "externo",
-      "url": "https://www.youtube.com/@angelgarciadatablog",
-      "icono": "proyecto",
-      "destacado": false,
-      "activo": true,
-      "campanas": ["sql"]
-    },
-    {
-      "id": "sesion-descubrimiento",
-      "titulo": "Sesion de descubrimiento - 20 min gratis",
-      "subtitulo": "Charlamos que quieres aprender y por donde empezar",
-      "tipo": "whatsapp",
-      "mensaje": "Hola Angel, vengo de tu pagina de links. Quiero agendar la sesion de descubrimiento de 20 minutos.",
-      "icono": "calendario",
-      "destacado": false,
-      "activo": true,
-      "campanas": ["*"]
-    },
-    {
-      "id": "web-blog",
-      "titulo": "Mi blog",
-      "subtitulo": "angelgarciadatablog.com",
-      "tipo": "externo",
-      "url": "https://www.angelgarciadatablog.com/",
-      "icono": "web",
-      "destacado": false,
-      "activo": true,
-      "campanas": ["*"]
-    },
-    {
-      "id": "youtube",
-      "titulo": "YouTube",
-      "subtitulo": "Tutoriales completos de datos y cloud",
-      "tipo": "externo",
-      "url": "https://www.youtube.com/@angelgarciadatablog",
-      "icono": "youtube",
-      "destacado": false,
-      "activo": true,
-      "campanas": ["*"]
-    },
-    {
-      "id": "comunidad-whatsapp",
-      "titulo": "Comunidad de WhatsApp",
-      "subtitulo": "Dudas, recursos y avisos de nuevos proyectos",
-      "tipo": "externo",
-      "url": "PENDIENTE_LINK_COMUNIDAD",
-      "icono": "whatsapp",
-      "destacado": false,
-      "activo": false,
-      "campanas": ["*"]
-    },
-    {
-      "id": "instagram",
-      "titulo": "Instagram",
-      "subtitulo": "",
-      "tipo": "externo",
-      "url": "PENDIENTE_LINK_INSTAGRAM",
-      "icono": "instagram",
-      "destacado": false,
-      "activo": false,
-      "campanas": ["*"]
-    },
-    {
-      "id": "tiktok",
-      "titulo": "TikTok",
-      "subtitulo": "",
-      "tipo": "externo",
-      "url": "PENDIENTE_LINK_TIKTOK",
-      "icono": "tiktok",
-      "destacado": false,
-      "activo": false,
-      "campanas": ["*"]
-    },
-    {
-      "id": "linkedin",
-      "titulo": "LinkedIn",
-      "subtitulo": "",
-      "tipo": "externo",
-      "url": "https://www.linkedin.com/in/angelgarciachanga/",
-      "icono": "linkedin",
-      "destacado": false,
-      "activo": true,
-      "campanas": ["*"]
-    },
-    {
-      "id": "asesoria-full-day-ga4",
-      "titulo": "Asesoria full day de Google Analytics",
-      "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
-      "tipo": "whatsapp",
-      "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de Google Analytics (4 horas).",
-      "icono": "whatsapp",
-      "destacado": true,
-      "activo": true,
-      "campanas": ["google-analytics"]
-    },
-    {
-      "id": "asesoria-full-day-bigquery",
-      "titulo": "Asesoria full day de BigQuery",
-      "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
-      "tipo": "whatsapp",
-      "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de BigQuery (4 horas).",
-      "icono": "whatsapp",
-      "destacado": true,
-      "activo": true,
-      "campanas": ["bigquery"]
-    },
-    {
-      "id": "asesoria-full-day-fabric",
-      "titulo": "Asesoria full day de Microsoft Fabric",
-      "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
-      "tipo": "whatsapp",
-      "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de Microsoft Fabric (4 horas).",
-      "icono": "whatsapp",
-      "destacado": true,
-      "activo": true,
-      "campanas": ["fabric"]
+
+    "permanentes": {
+      "titulo": "Trabajemos juntos",
+      "descripcion": "",
+      "botones": [
+        {
+          "id": "sesion-descubrimiento",
+          "titulo": "Sesion de descubrimiento - 20 min gratis",
+          "subtitulo": "Charlamos que quieres aprender y por donde empezar",
+          "tipo": "whatsapp",
+          "mensaje": "Hola Angel, vengo de tu pagina de links. Quiero agendar la sesion de descubrimiento de 20 minutos.",
+          "icono": "calendario",
+          "activo": true
+        }
+      ]
     }
-  ]
+  },
+
+  "campanas": {
+    "sql": {
+      "nombre": "SQL desde cero",
+      "titulo": "En lo que estoy ahora: SQL desde cero",
+      "descripcion": "El proyecto completo, explicado paso a paso.",
+      "botones": [
+        {
+          "id": "campana-sql-video",
+          "titulo": "Ver el proyecto completo en YouTube",
+          "subtitulo": "Gratis, de principio a fin",
+          "tipo": "externo",
+          "url": "PENDIENTE_URL_VIDEO_O_PLAYLIST",
+          "icono": "playlist",
+          "destacado": true,
+          "activo": true
+        },
+        {
+          "id": "campana-sql-asesoria",
+          "titulo": "Asesoria full day de SQL",
+          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "tipo": "whatsapp",
+          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de SQL (4 horas).",
+          "icono": "whatsapp",
+          "destacado": false,
+          "activo": true
+        }
+      ]
+    },
+
+    "google-analytics": {
+      "nombre": "Google Analytics",
+      "titulo": "En lo que estoy ahora: Google Analytics",
+      "descripcion": "",
+      "botones": [
+        {
+          "id": "campana-ga4-video",
+          "titulo": "Ver el proyecto completo en YouTube",
+          "subtitulo": "Gratis, de principio a fin",
+          "tipo": "externo",
+          "url": "PENDIENTE_URL_VIDEO_O_PLAYLIST",
+          "icono": "playlist",
+          "destacado": true,
+          "activo": true
+        },
+        {
+          "id": "campana-ga4-asesoria",
+          "titulo": "Asesoria full day de Google Analytics",
+          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "tipo": "whatsapp",
+          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de Google Analytics (4 horas).",
+          "icono": "whatsapp",
+          "destacado": false,
+          "activo": true
+        }
+      ]
+    },
+
+    "bigquery": {
+      "nombre": "BigQuery",
+      "titulo": "En lo que estoy ahora: BigQuery",
+      "descripcion": "",
+      "botones": [
+        {
+          "id": "campana-bigquery-video",
+          "titulo": "Ver el proyecto completo en YouTube",
+          "subtitulo": "Gratis, de principio a fin",
+          "tipo": "externo",
+          "url": "PENDIENTE_URL_VIDEO_O_PLAYLIST",
+          "icono": "playlist",
+          "destacado": true,
+          "activo": true
+        },
+        {
+          "id": "campana-bigquery-asesoria",
+          "titulo": "Asesoria full day de BigQuery",
+          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "tipo": "whatsapp",
+          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de BigQuery (4 horas).",
+          "icono": "whatsapp",
+          "destacado": false,
+          "activo": true
+        }
+      ]
+    },
+
+    "fabric": {
+      "nombre": "Microsoft Fabric",
+      "titulo": "En lo que estoy ahora: Microsoft Fabric",
+      "descripcion": "",
+      "botones": [
+        {
+          "id": "campana-fabric-video",
+          "titulo": "Ver el proyecto completo en YouTube",
+          "subtitulo": "Gratis, de principio a fin",
+          "tipo": "externo",
+          "url": "PENDIENTE_URL_VIDEO_O_PLAYLIST",
+          "icono": "playlist",
+          "destacado": true,
+          "activo": true
+        },
+        {
+          "id": "campana-fabric-asesoria",
+          "titulo": "Asesoria full day de Microsoft Fabric",
+          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "tipo": "whatsapp",
+          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de Microsoft Fabric (4 horas).",
+          "icono": "whatsapp",
+          "destacado": false,
+          "activo": true
+        }
+      ]
+    }
+  }
 }
