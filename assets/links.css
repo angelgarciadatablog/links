@@ -201,9 +201,13 @@ body::before {
   display: block;
 }
 
+/* Título y subtítulo son <span> (en línea): sin esto se pintan
+   pegados en la misma fila en vez de apilarse. */
 .boton-texto {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .boton-titulo {
