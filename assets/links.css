@@ -173,15 +173,18 @@ body::before {
   outline-offset: 2px;
 }
 
-/* El botón de la campaña activa: el único con acento. */
+/* Destacado sutil: el peso lo lleva el icono en color de acento (ver
+   .boton.destacado .boton-icono). La tarjeta solo insinúa el azul —
+   un fondo mas fuerte competiria con el resto de la lista en vez de
+   guiar la mirada. Al pasar el cursor si se afirma. */
 .boton.destacado {
-  background-color: rgba(37, 99, 235, 0.10);
-  border-color: rgba(37, 99, 235, 0.45);
+  background-color: rgba(37, 99, 235, 0.04);
+  border-color: rgba(37, 99, 235, 0.26);
 }
 
 .boton.destacado:hover {
-  background-color: rgba(37, 99, 235, 0.16);
-  border-color: var(--color-acento);
+  background-color: rgba(37, 99, 235, 0.10);
+  border-color: rgba(37, 99, 235, 0.55);
 }
 
 .boton-icono {
