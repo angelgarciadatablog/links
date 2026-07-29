@@ -94,7 +94,7 @@ Añadir un bloque a `campanas` con su clave (kebab-case, sin espacios) y sus bot
 | `mensaje` | Solo `tipo: whatsapp`. Texto que le aparece ya escrito a quien te escribe. |
 | `url` | Solo `tipo: externo`. |
 | `icono` | `web`, `youtube`, `playlist`, `instagram`, `tiktok`, `whatsapp`, `canal`, `linkedin`, `calendario`, `proyecto`, `enlace`. |
-| `destacado` | `true` = fondo azul y borde de acento. **Solo aplica el estilo, no reordena nada.** Reservarlo para los botones que generan negocio: hoy YouTube y el canal de WhatsApp (visualizaciones de pago y leads). Máximo 2 por sección — con más, dejan de destacar. |
+| `destacado` | `true` = **el icono se pinta en azul de acento, nada más**. La tarjeta (fondo, borde, hover) queda idéntica al resto y el orden no cambia. Reservarlo para los botones que generan negocio: hoy YouTube y el canal de WhatsApp (visualizaciones de pago y leads). Máximo 2 por sección — con más, dejan de destacar. |
 | `activo` | `false` = apagado sin borrarlo del archivo. |
 
 El orden en la página es el orden del array. Para reordenar, mover los bloques.
