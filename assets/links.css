@@ -11,7 +11,23 @@
   --color-acento: #2563eb;
   --color-acento-hover: #1d4ed8;
   --fuente: 'Inter', Arial, sans-serif;
-  --ancho: 560px;
+
+  /* ── Medidas ajustables ────────────────────────────────────────
+     Se pueden sobrescribir desde "ajustes_prueba" en links.json
+     sin tocar este archivo. Son las cuatro que deciden si algo se
+     lee como boton o como fila de lista:
+
+       --ancho         ancho maximo de la columna. Cuanto mas ancho,
+                       mas se parece a una fila de tabla. Solo afecta
+                       en escritorio; en movil manda el viewport.
+       --boton-padding-y  altura. Mas alto = mas macizo = mas boton.
+       --boton-radio   forma. 8px cuadrado, 14px tarjeta, 999px pildora.
+       --boton-gap     separacion. Poco gap = lista continua;
+                       mas gap = objetos independientes. */
+  --ancho: 480px;
+  --boton-padding-y: 18px;
+  --boton-radio: 14px;
+  --boton-gap: 14px;
 }
 
 * {
@@ -142,35 +158,109 @@ body::before {
 .lista-botones {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--boton-gap);
 }
 
+/* ── Base: solo estructura, sin "piel" ─────────────────────────────
+   El aspecto lo pone la variante activa (data-estilo en <body>),
+   que se elige con "estilo_botones" en links.json.
+   Criterio: la mayoria del trafico es movil, donde NO hay hover.
+   El boton tiene que leerse como pulsable estando quieto, y el unico
+   feedback real es :active. Por eso cada variante define su :active. */
 .boton {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px 18px;
-  background-color: var(--color-superficie);
-  border: 1px solid var(--color-borde);
-  border-radius: 14px;
+  padding: var(--boton-padding-y) 18px;
   color: var(--color-texto);
   text-decoration: none;
-  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-}
-
-.boton:hover {
-  background-color: var(--color-superficie-hover);
-  border-color: #3a3a3a;
-  transform: translateY(-2px);
-}
-
-.boton:active {
-  transform: translateY(0);
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              transform 0.08s ease, box-shadow 0.08s ease;
 }
 
 .boton:focus-visible {
   outline: 2px solid var(--color-acento);
   outline-offset: 2px;
+}
+
+/* ── Variante 1: ELEVADO ───────────────────────────────────────────
+   Tecla fisica. La sombra dura de abajo simula el canto del boton;
+   al presionar, la tarjeta baja justo esa altura y el canto desaparece,
+   asi que el dedo "hunde" el boton de verdad. */
+[data-estilo="elevado"] .boton {
+  background-color: #1f1f1f;
+  border: 1px solid #3a3a3a;
+  border-radius: var(--boton-radio);
+  box-shadow: 0 3px 0 #000000, 0 5px 14px rgba(0, 0, 0, 0.45);
+}
+
+[data-estilo="elevado"] .boton:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 #000000, 0 1px 4px rgba(0, 0, 0, 0.4);
+  background-color: #262626;
+}
+
+@media (hover: hover) {
+  [data-estilo="elevado"] .boton:hover {
+    background-color: #252525;
+    border-color: #4a4a4a;
+  }
+}
+
+/* ── Variante 2: PILL CENTRADO ─────────────────────────────────────
+   El formato que la gente reconoce como boton al instante.
+   Sin flecha (una pildora centrada no necesita indicar direccion). */
+[data-estilo="pill"] .boton {
+  background-color: #212121;
+  border: 1px solid #383838;
+  border-radius: 999px;
+  padding: var(--boton-padding-y) 24px;
+  justify-content: center;
+  text-align: center;
+  gap: 11px;
+}
+
+[data-estilo="pill"] .boton-texto {
+  flex: 0 1 auto;
+}
+
+[data-estilo="pill"] .boton-flecha {
+  display: none;
+}
+
+[data-estilo="pill"] .boton:active {
+  transform: scale(0.975);
+  background-color: #2c2c2c;
+}
+
+@media (hover: hover) {
+  [data-estilo="pill"] .boton:hover {
+    background-color: #292929;
+    border-color: #4a4a4a;
+  }
+}
+
+/* ── Variante 3: SOLIDO ────────────────────────────────────────────
+   Sin borde: la separacion la da el contraste puro contra el fondo
+   (#2b2b2b sobre #0f0f0f). Plano, mas alto y mas redondeado — el
+   lenguaje de boton "filled" de las apps moviles. */
+[data-estilo="solido"] .boton {
+  background-color: #2b2b2b;
+  border: none;
+  border-radius: calc(var(--boton-radio) + 2px);
+  padding: calc(var(--boton-padding-y) + 1px) 20px;
+}
+
+[data-estilo="solido"] .boton:active {
+  transform: scale(0.98);
+  background-color: #383838;
+}
+
+@media (hover: hover) {
+  [data-estilo="solido"] .boton:hover {
+    background-color: #333333;
+  }
 }
 
 /* Destacado: la tarjeta es idéntica al resto — fondo, borde y hover sin

@@ -217,7 +217,24 @@
     if (perfil.nombre) document.title = perfil.nombre + ' — Links';
   }
 
+  var ESTILOS = ['elevado', 'pill', 'solido'];
+
   function pintar(datos) {
+    // Interruptor temporal para comparar estilos de botón en móvil.
+    // Cuando se elija uno, se deja fijo y se borran las otras variantes.
+    var estilo = datos.estilo_botones;
+    document.body.setAttribute(
+      'data-estilo',
+      ESTILOS.indexOf(estilo) !== -1 ? estilo : ESTILOS[0]
+    );
+
+    // Medidas de "ajustes_prueba" -> variables CSS. Lo que no venga,
+    // se queda con el valor por defecto de :root en links.css.
+    var ajustes = datos.ajustes_prueba || {};
+    Object.keys(ajustes).forEach(function (clave) {
+      document.documentElement.style.setProperty('--' + clave, ajustes[clave]);
+    });
+
     var orden = datos.orden_secciones || ['campana', 'personales', 'permanentes'];
 
     // Si la sección de campaña no se pinta, no hay campaña que reportar:

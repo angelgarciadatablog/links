@@ -1,6 +1,17 @@
 {
   "_comentario": "Fuente de verdad de la pagina. Editar SOLO este archivo. Ver README.md.",
 
+  "_estilo_botones_nota": "TEMPORAL, para elegir. Valores: elevado | pill | solido. Cambiar y recargar.",
+  "estilo_botones": "elevado",
+
+  "_ajustes_prueba_nota": "TEMPORAL. Medidas que deciden si algo se lee como boton o como fila de lista. Borrar una linea = vuelve al default del CSS.",
+  "ajustes_prueba": {
+    "ancho": "480px",
+    "boton-padding-y": "18px",
+    "boton-radio": "14px",
+    "boton-gap": "14px"
+  },
+
   "campana_activa": "sql",
 
   "_orden_secciones_nota": "Para volver a mostrar la campana, agregar \"campana\" a la lista. Los bloques de campanas/ siguen intactos abajo.",
