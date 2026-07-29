@@ -26,6 +26,16 @@
     return !valor || PENDIENTE.test(String(valor));
   }
 
+  /* Une los trozos de links.json. Devuelve '' si falta alguno o si hay
+     algo que no sean digitos, para que las guardas oculten los botones
+     en vez de generar un wa.me roto. */
+  function numeroDe(whatsapp) {
+    var partes = (whatsapp && whatsapp.numero_partes) || [];
+    if (!partes.length) return '';
+    var unido = partes.join('');
+    return /^[0-9]{8,15}$/.test(unido) ? unido : '';
+  }
+
   /* Un botón se muestra si está activo y no tiene valores pendientes.
      La pertenencia a una campaña ya no se filtra aquí: la define
      en qué bloque del JSON vive el botón. */
@@ -39,6 +49,27 @@
     if (boton.tipo !== 'whatsapp') return boton.url;
     var texto = boton.mensaje ? '?text=' + encodeURIComponent(boton.mensaje) : '';
     return 'https://wa.me/' + numeroWhatsapp + texto;
+  }
+
+  /* Los botones de WhatsApp nacen con href="#" y reciben la URL real recién
+     cuando alguien va a usarlos (mousedown / toque / foco de teclado).
+     Motivo: el numero viaja dentro de la propia URL de wa.me, y los links
+     wa.me publicados en HTML terminan indexados por buscadores. Googlebot
+     renderiza JS pero no dispara eventos de interaccion, asi que nunca ve
+     el numero armado.
+     Es un obstaculo contra bots, NO contra personas: quien haga clic lo vera
+     igual. La proteccion de verdad seria un numero dedicado al negocio. */
+  function armarAlUsar(a, construirUrl) {
+    var listo = false;
+    function armar() {
+      if (listo) return;
+      a.href = construirUrl();
+      listo = true;
+    }
+    ['mousedown', 'touchstart', 'focus', 'keydown'].forEach(function (evento) {
+      a.addEventListener(evento, armar, { passive: true });
+    });
+    return armar;
   }
 
   /* Etiqueta de destino para GA4: agrupa clics por plataforma sin
@@ -56,14 +87,23 @@
   }
 
   function crearBoton(boton, contexto) {
-    var url = urlDelBoton(boton, contexto.numero);
-    var destino = destinoDe(boton, url);
+    var esWhatsapp = boton.tipo === 'whatsapp';
+    var construirUrl = function () { return urlDelBoton(boton, contexto.numero); };
+    var destino = destinoDe(boton, esWhatsapp ? '' : boton.url);
 
     var a = document.createElement('a');
     a.className = 'boton' + (boton.destacado ? ' destacado' : '');
-    a.href = url;
     a.target = '_blank';
     a.rel = 'noopener';
+
+    // Los de WhatsApp reciben su URL al interactuar; el resto, ya.
+    var armar = null;
+    if (esWhatsapp) {
+      a.href = '#';
+      armar = armarAlUsar(a, construirUrl);
+    } else {
+      a.href = boton.url;
+    }
 
     var icono = document.createElement('span');
     icono.className = 'boton-icono';
@@ -95,6 +135,10 @@
     a.appendChild(flecha);
 
     a.addEventListener('click', function () {
+      // Red de seguridad: si ningun evento previo disparo (clic sintetico,
+      // lector de pantalla), se arma aqui antes de que el navegador navegue.
+      if (armar) armar();
+
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'link_click',
@@ -176,7 +220,7 @@
   function pintar(datos) {
     var estado = {
       campanaActiva: datos.campana_activa || '',
-      numero: (datos.whatsapp && datos.whatsapp.numero) || '',
+      numero: numeroDe(datos.whatsapp),
       total: 0
     };
 

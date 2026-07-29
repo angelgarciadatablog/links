@@ -99,7 +99,7 @@ Dejar el archivo en `img/` y apuntarlo: `"avatar": "./img/perfil.jpg"`. Si está
 
 Los valores que empiezan con `PENDIENTE_` **ocultan su botón** (protección para no publicar links rotos). Faltan:
 
-- [ ] `whatsapp.numero` — solo dígitos, con código de país, sin `+`. Sin esto **no aparece ningún botón de WhatsApp**: ni las asesorías ni la sesión de descubrimiento.
+- [x] `whatsapp.numero_partes` — completado 2026-07-28
 - [ ] `instagram` → `url`
 - [ ] `tiktok` → `url`
 - [ ] En cada campaña, `campana-<tema>-video` → `url` del video o playlist de YouTube
@@ -177,7 +177,35 @@ Cada botón de WhatsApp lleva su propio mensaje precargado ("*...me interesa la 
 
 ---
 
-## 8. Estructura
+## 8. El número de WhatsApp
+
+### 8.1 Por qué está troceado
+
+```json
+"whatsapp": { "numero_partes": ["51", "967", "130", "241"] }
+```
+
+El número viaja **dentro de la propia URL** de `wa.me`, y los enlaces `wa.me` publicados en HTML terminan indexados por buscadores. Por eso:
+
+1. El número se guarda partido en `links.json` y se une en memoria al cargar.
+2. Los botones de WhatsApp nacen con `href="#"`.
+3. La URL real se escribe en el `href` recién cuando alguien va a usar el botón (`mousedown`, toque, o foco por teclado). Googlebot renderiza JavaScript pero **no dispara eventos de interacción**, así que nunca ve el número armado.
+
+> **Qué NO es esto.** Es un obstáculo contra bots, no contra personas. Quien haga clic ve el número igual, y quien abra el código lo encuentra en 30 segundos. La protección de verdad es **un número dedicado al negocio**, distinto del personal. Esto solo evita la cosecha automática.
+
+### 8.2 Cambiar el número
+
+Editar `numero_partes`. Los cortes son arbitrarios — puede ser `["51","967","130","241"]` o `["519","6713","0241"]`, da igual mientras al unirlos queden solo dígitos, empiecen por el código de país y sumen entre 8 y 15 caracteres.
+
+Si el resultado no cumple ese formato, `links.js` lo trata como vacío y **oculta todos los botones de WhatsApp** en vez de generar un link roto. Un número mal escrito se nota porque desaparecen las secciones comerciales.
+
+### 8.3 Si se cambia de número
+
+Los `id` de los botones no cambian, así que **el historial de GA4 sigue siendo comparable**. Lo único a revisar: los enlaces `wa.me` viejos que ya se hayan compartido por fuera de la página dejan de funcionar.
+
+---
+
+## 9. Estructura
 
 ```
 links/

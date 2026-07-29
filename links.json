@@ -13,8 +13,8 @@
   },
 
   "whatsapp": {
-    "numero": "PENDIENTE_NUMERO_CON_CODIGO_PAIS",
-    "_nota": "Solo digitos, con codigo de pais y sin +. Ej Peru: 51987654321"
+    "numero_partes": ["51", "967", "130", "241"],
+    "_nota": "Troceado a proposito: evita que Google y los bots recojan el numero del HTML. Solo digitos, primera parte = codigo de pais (Peru 51), sin +. Ver README seccion 8."
   },
 
   "secciones": {
