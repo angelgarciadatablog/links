@@ -8,8 +8,9 @@
 
   "perfil": {
     "nombre": "Ángel García",
-    "tagline": "Analista de datos. Enseño SQL, Google Analytics, BigQuery y Fabric con ejemplos reales.",
-    "avatar": "",
+    "tagline": "Aprender datos y cloud no tiene que ser difícil — aquí lo explico todo con ejemplos reales y paso a paso.",
+    "avatar": "./img/perfil.png",
+    "_avatar_nota": "Copia local optimizada (256px) del original en storage.googleapis.com/angel-assets/profile/. Si se cambia la foto alla, hay que volver a copiarla aqui.",
     "iniciales": "AG"
   },
 

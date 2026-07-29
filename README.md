@@ -101,7 +101,20 @@ El orden en la página es el orden del array. Para reordenar, mover los bloques.
 
 ### 3.1 Foto de perfil
 
-Dejar el archivo en `img/` y apuntarlo: `"avatar": "./img/perfil.jpg"`. Si está vacío o falla, se muestran las iniciales. Cuadrada, 400×400 px o más.
+`img/perfil.png` — copia local de 256×256 px (103 KB) del original que vive en `storage.googleapis.com/angel-assets/profile/`, el mismo que usan las otras páginas.
+
+**Es una copia deliberada, no un enlace al bucket.** La página se carga desde una bio de TikTok, casi siempre en móvil con datos: una petición externa menos importa, y el original de 720×720 pesaba 544 KB para mostrarse a 96 px.
+
+Contrapartida: si cambias la foto en el bucket, **esta no se actualiza sola**. Hay que volver a copiarla:
+
+```bash
+curl -s -o img/perfil.png "https://storage.googleapis.com/angel-assets/profile/<archivo>.png"
+sips -Z 256 img/perfil.png
+```
+
+Si prefieres que se actualice sola, pon la URL completa del bucket en `"avatar"` y listo — funciona igual, solo cambia el compromiso.
+
+Si `avatar` está vacío o la imagen falla al cargar, se muestran las iniciales de `"iniciales"`.
 
 ---
 
