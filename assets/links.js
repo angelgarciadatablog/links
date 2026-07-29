@@ -217,42 +217,9 @@
     if (perfil.nombre) document.title = perfil.nombre + ' — Links';
   }
 
-  var ESTILOS = ['elevado', 'pill', 'solido'];
-
   function pintar(datos) {
     // Interruptor temporal para comparar estilos de botón en móvil.
     // Cuando se elija uno, se deja fijo y se borran las otras variantes.
-    // ?estilo=pill en la URL gana sobre links.json. Sirve para comparar
-    // las variantes desde el movil sin volver a editar el archivo.
-    var enUrl = (location.search.match(/[?&]estilo=([a-z]+)/) || [])[1];
-    var estilo = ESTILOS.indexOf(enUrl) !== -1 ? enUrl : datos.estilo_botones;
-    document.body.setAttribute(
-      'data-estilo',
-      ESTILOS.indexOf(estilo) !== -1 ? estilo : ESTILOS[0]
-    );
-
-    // Medidas de "ajustes_prueba" -> variables CSS. Lo que no venga,
-    // se queda con el valor por defecto de :root en links.css.
-    var ajustes = datos.ajustes_prueba || {};
-    Object.keys(ajustes).forEach(function (clave) {
-      document.documentElement.style.setProperty('--' + clave, ajustes[clave]);
-    });
-
-    // Y la URL gana sobre el JSON, para calibrar desde el movil:
-    // ?radio=24&alto=20&gap=16&ancho=440  (el "px" es opcional)
-    var ATAJOS = {
-      radio: 'boton-radio',
-      alto: 'boton-padding-y',
-      gap: 'boton-gap',
-      ancho: 'ancho'
-    };
-    Object.keys(ATAJOS).forEach(function (corto) {
-      var m = location.search.match(new RegExp('[?&]' + corto + '=([0-9]+)(px)?'));
-      if (m) {
-        document.documentElement.style.setProperty('--' + ATAJOS[corto], m[1] + 'px');
-      }
-    });
-
     var orden = datos.orden_secciones || ['campana', 'personales', 'permanentes'];
 
     // Si la sección de campaña no se pinta, no hay campaña que reportar:
