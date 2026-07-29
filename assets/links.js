@@ -218,8 +218,15 @@
   }
 
   function pintar(datos) {
+    var orden = datos.orden_secciones || ['campana', 'personales', 'permanentes'];
+
+    // Si la sección de campaña no se pinta, no hay campaña que reportar:
+    // mandar "sql" a GA4 mientras la página no muestra nada de SQL ensucia
+    // los informes. La única fuente de verdad es lo que se ve en pantalla.
+    var hayCampana = orden.indexOf('campana') !== -1;
+
     var estado = {
-      campanaActiva: datos.campana_activa || '',
+      campanaActiva: hayCampana ? (datos.campana_activa || '') : '',
       numero: numeroDe(datos.whatsapp),
       total: 0
     };
@@ -227,8 +234,7 @@
     pintarPerfil(datos.perfil || {});
 
     var contenedor = document.getElementById('secciones');
-    var orden = datos.orden_secciones || ['campana', 'personales', 'permanentes'];
-    var campana = (datos.campanas || {})[estado.campanaActiva];
+    var campana = hayCampana ? (datos.campanas || {})[estado.campanaActiva] : null;
 
     orden.forEach(function (idSeccion) {
       // "campana" es la sección especial: su contenido sale del bloque

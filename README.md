@@ -8,21 +8,23 @@ Repo aparte del blog a propósito: cambia cuando cambia la oferta, no cuando se 
 
 ## 1. Cómo está organizada la página
 
-Tres secciones. El orden lo decide una línea de `links.json`:
+Qué secciones se pintan, y en qué orden, lo decide una línea de `links.json`:
 
 ```json
-"orden_secciones": ["personales", "campana", "permanentes"]
+"orden_secciones": ["personales", "permanentes"]
 ```
 
-| Sección | Qué contiene | De dónde sale |
-|---|---|---|
-| `personales` | Blog, YouTube, canal de WhatsApp, Instagram, TikTok, LinkedIn | `secciones.personales` |
-| `campana` | Los botones de la campaña activa | `campanas[campana_activa]` |
-| `permanentes` | Sesión de descubrimiento de 20 min | `secciones.permanentes` |
+| Sección | Qué contiene | De dónde sale | Hoy |
+|---|---|---|---|
+| `personales` | Blog, YouTube, canal de WhatsApp, Instagram, TikTok, LinkedIn | `secciones.personales` | ✅ visible |
+| `permanentes` | Sesión de descubrimiento de 20 min | `secciones.permanentes` | ✅ visible |
+| `campana` | Los botones de la campaña activa | `campanas[campana_activa]` | ⬜ **apagada** |
 
-La sección de campaña se pinta con marco azul y título en color de acento — es la única que se distingue visualmente, porque es la que recibe el tráfico de TikTok.
+**Una sección fuera de `orden_secciones` no se pinta, pero sus datos siguen intactos en el archivo.** Es un interruptor, no un borrado: la campaña vuelve añadiendo `"campana"` a la lista.
 
-Una sección **sin botones visibles no se pinta**: nunca queda un título huérfano.
+Una sección **sin botones visibles tampoco se pinta**: nunca queda un título huérfano.
+
+La sección de campaña es la única que se distingue visualmente (marco azul y título en color de acento), porque es la que recibe el tráfico de TikTok.
 
 ---
 
@@ -48,17 +50,25 @@ Por eso la campaña **no es un flag**, es un bloque con identidad propia dentro 
 }
 ```
 
-### 2.1 Cambiar de campaña
+### 2.1 Encender y apagar la campaña
 
-Una línea:
+Hoy la sección **está apagada** (2026-07-28): `orden_secciones` no incluye `"campana"`. Los cuatro bloques de campaña siguen guardados y listos.
+
+Para encenderla:
+
+```json
+"orden_secciones": ["personales", "campana", "permanentes"]
+```
+
+Y para elegir cuál se muestra:
 
 ```json
 "campana_activa": "sql"
 ```
 
-Cambia a `"google-analytics"`, `"bigquery"` o `"fabric"`. La sección de campaña se reemplaza entera; las otras dos no se tocan.
+Cambia a `"google-analytics"`, `"bigquery"` o `"fabric"`. La sección se reemplaza entera; las otras dos no se tocan.
 
-Para dejar la página sin campaña: `"campana_activa": ""`. La sección desaparece sola.
+> **Mientras la campaña esté apagada, el parámetro `campana` que se envía a GA4 va vacío**, aunque `campana_activa` diga `"sql"`. Es a propósito: reportar una campaña que la página no muestra ensuciaría los informes. La única fuente de verdad es lo que se ve en pantalla.
 
 ### 2.2 Crear una campaña nueva
 
@@ -100,9 +110,11 @@ Dejar el archivo en `img/` y apuntarlo: `"avatar": "./img/perfil.jpg"`. Si está
 Los valores que empiezan con `PENDIENTE_` **ocultan su botón** (protección para no publicar links rotos). Faltan:
 
 - [x] `whatsapp.numero_partes` — completado 2026-07-28
-- [ ] `instagram` → `url`
-- [ ] `tiktok` → `url`
-- [ ] En cada campaña, `campana-<tema>-video` → `url` del video o playlist de YouTube
+- [x] `instagram` → `url` — completado 2026-07-28
+- [x] `tiktok` → `url` — completado 2026-07-28
+- [ ] En cada campaña, `campana-<tema>-video` → `url` del video o playlist de YouTube (no urge: la sección de campaña está apagada)
+
+**Estado: las dos secciones activas están completas — 7 botones visibles, ninguno oculto.**
 
 ---
 

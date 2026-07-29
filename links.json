@@ -3,11 +3,12 @@
 
   "campana_activa": "sql",
 
-  "orden_secciones": ["personales", "campana", "permanentes"],
+  "_orden_secciones_nota": "Para volver a mostrar la campana, agregar \"campana\" a la lista. Los bloques de campanas/ siguen intactos abajo.",
+  "orden_secciones": ["personales", "permanentes"],
 
   "perfil": {
-    "nombre": "Angel Garcia",
-    "tagline": "Analista de datos. Enseno SQL, Google Analytics, BigQuery y Fabric con ejemplos reales.",
+    "nombre": "Ángel García",
+    "tagline": "Analista de datos. Enseño SQL, Google Analytics, BigQuery y Fabric con ejemplos reales.",
     "avatar": "",
     "iniciales": "AG"
   },
@@ -19,7 +20,7 @@
 
   "secciones": {
     "personales": {
-      "titulo": "Donde encontrarme",
+      "titulo": "Dónde encontrarme",
       "descripcion": "",
       "botones": [
         {
@@ -52,18 +53,18 @@
         {
           "id": "instagram",
           "titulo": "Instagram",
-          "subtitulo": "",
+          "subtitulo": "@angelgarciadatablog",
           "tipo": "externo",
-          "url": "PENDIENTE_LINK_INSTAGRAM",
+          "url": "https://www.instagram.com/angelgarciadatablog/",
           "icono": "instagram",
           "activo": true
         },
         {
           "id": "tiktok",
           "titulo": "TikTok",
-          "subtitulo": "",
+          "subtitulo": "@angelgarciadatablog",
           "tipo": "externo",
-          "url": "PENDIENTE_LINK_TIKTOK",
+          "url": "https://www.tiktok.com/@angelgarciadatablog",
           "icono": "tiktok",
           "activo": true
         },
@@ -80,15 +81,15 @@
     },
 
     "permanentes": {
-      "titulo": "Trabajemos juntos",
+      "titulo": "¿Hablamos?",
       "descripcion": "",
       "botones": [
         {
           "id": "sesion-descubrimiento",
-          "titulo": "Sesion de descubrimiento - 20 min gratis",
-          "subtitulo": "Charlamos que quieres aprender y por donde empezar",
+          "titulo": "Sesión de descubrimiento — 20 min gratis",
+          "subtitulo": "Charlamos qué quieres aprender y por dónde empezar",
           "tipo": "whatsapp",
-          "mensaje": "Hola Angel, vengo de tu pagina de links. Quiero agendar la sesion de descubrimiento de 20 minutos.",
+          "mensaje": "Hola Ángel, vengo de tu página de links. Quiero agendar la sesión de descubrimiento de 20 minutos.",
           "icono": "calendario",
           "activo": true
         }
@@ -114,10 +115,10 @@
         },
         {
           "id": "campana-sql-asesoria",
-          "titulo": "Asesoria full day de SQL",
-          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "titulo": "Asesoría full day de SQL",
+          "subtitulo": "4 horas 1 a 1 — escríbeme y lo coordinamos",
           "tipo": "whatsapp",
-          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de SQL (4 horas).",
+          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría full day de SQL (4 horas).",
           "icono": "whatsapp",
           "destacado": false,
           "activo": true
@@ -142,10 +143,10 @@
         },
         {
           "id": "campana-ga4-asesoria",
-          "titulo": "Asesoria full day de Google Analytics",
-          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "titulo": "Asesoría full day de Google Analytics",
+          "subtitulo": "4 horas 1 a 1 — escríbeme y lo coordinamos",
           "tipo": "whatsapp",
-          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de Google Analytics (4 horas).",
+          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría full day de Google Analytics (4 horas).",
           "icono": "whatsapp",
           "destacado": false,
           "activo": true
@@ -170,10 +171,10 @@
         },
         {
           "id": "campana-bigquery-asesoria",
-          "titulo": "Asesoria full day de BigQuery",
-          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "titulo": "Asesoría full day de BigQuery",
+          "subtitulo": "4 horas 1 a 1 — escríbeme y lo coordinamos",
           "tipo": "whatsapp",
-          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de BigQuery (4 horas).",
+          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría full day de BigQuery (4 horas).",
           "icono": "whatsapp",
           "destacado": false,
           "activo": true
@@ -198,10 +199,10 @@
         },
         {
           "id": "campana-fabric-asesoria",
-          "titulo": "Asesoria full day de Microsoft Fabric",
-          "subtitulo": "4 horas 1 a 1 - escribeme y lo coordinamos",
+          "titulo": "Asesoría full day de Microsoft Fabric",
+          "subtitulo": "4 horas 1 a 1 — escríbeme y lo coordinamos",
           "tipo": "whatsapp",
-          "mensaje": "Hola Angel, vengo de tu pagina de links. Me interesa la asesoria full day de Microsoft Fabric (4 horas).",
+          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría full day de Microsoft Fabric (4 horas).",
           "icono": "whatsapp",
           "destacado": false,
           "activo": true
