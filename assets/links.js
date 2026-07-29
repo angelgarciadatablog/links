@@ -222,7 +222,10 @@
   function pintar(datos) {
     // Interruptor temporal para comparar estilos de botón en móvil.
     // Cuando se elija uno, se deja fijo y se borran las otras variantes.
-    var estilo = datos.estilo_botones;
+    // ?estilo=pill en la URL gana sobre links.json. Sirve para comparar
+    // las variantes desde el movil sin volver a editar el archivo.
+    var enUrl = (location.search.match(/[?&]estilo=([a-z]+)/) || [])[1];
+    var estilo = ESTILOS.indexOf(enUrl) !== -1 ? enUrl : datos.estilo_botones;
     document.body.setAttribute(
       'data-estilo',
       ESTILOS.indexOf(estilo) !== -1 ? estilo : ESTILOS[0]
