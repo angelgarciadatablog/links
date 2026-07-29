@@ -1,22 +1,20 @@
 {
   "_comentario": "Fuente de verdad de la pagina. Editar SOLO este archivo. Ver README.md.",
-
   "_estilo_botones_nota": "TEMPORAL, para elegir. Valores: elevado | pill | solido. Cambiar y recargar.",
   "estilo_botones": "elevado",
-
   "_ajustes_prueba_nota": "TEMPORAL. Medidas que deciden si algo se lee como boton o como fila de lista. Borrar una linea = vuelve al default del CSS.",
   "ajustes_prueba": {
     "ancho": "480px",
     "boton-padding-y": "18px",
-    "boton-radio": "20px",
+    "boton-radio": "28px",
     "boton-gap": "14px"
   },
-
   "campana_activa": "sql",
-
   "_orden_secciones_nota": "Para volver a mostrar la campana, agregar \"campana\" a la lista. Los bloques de campanas/ siguen intactos abajo.",
-  "orden_secciones": ["personales", "permanentes"],
-
+  "orden_secciones": [
+    "personales",
+    "permanentes"
+  ],
   "perfil": {
     "nombre": "Ángel García",
     "tagline": "Aprender datos y cloud no tiene que ser difícil — aquí lo explico todo con ejemplos reales y paso a paso.",
@@ -24,12 +22,15 @@
     "_avatar_nota": "Copia local optimizada (256px) del original en storage.googleapis.com/angel-assets/profile/. Si se cambia la foto alla, hay que volver a copiarla aqui.",
     "iniciales": "AG"
   },
-
   "whatsapp": {
-    "numero_partes": ["51", "967", "130", "241"],
+    "numero_partes": [
+      "51",
+      "967",
+      "130",
+      "241"
+    ],
     "_nota": "Troceado a proposito: evita que Google y los bots recojan el numero del HTML. Solo digitos, primera parte = codigo de pais (Peru 51), sin +. Ver README seccion 8."
   },
-
   "secciones": {
     "personales": {
       "titulo": "Dónde encontrarme",
@@ -93,7 +94,6 @@
         }
       ]
     },
-
     "permanentes": {
       "titulo": "¿Hablamos?",
       "descripcion": "",
@@ -110,7 +110,6 @@
       ]
     }
   },
-
   "campanas": {
     "sql": {
       "nombre": "SQL desde cero",
@@ -139,7 +138,6 @@
         }
       ]
     },
-
     "google-analytics": {
       "nombre": "Google Analytics",
       "titulo": "En lo que estoy ahora: Google Analytics",
@@ -167,7 +165,6 @@
         }
       ]
     },
-
     "bigquery": {
       "nombre": "BigQuery",
       "titulo": "En lo que estoy ahora: BigQuery",
@@ -195,7 +192,6 @@
         }
       ]
     },
-
     "fabric": {
       "nombre": "Microsoft Fabric",
       "titulo": "En lo que estoy ahora: Microsoft Fabric",
