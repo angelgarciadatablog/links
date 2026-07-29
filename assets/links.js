@@ -238,6 +238,21 @@
       document.documentElement.style.setProperty('--' + clave, ajustes[clave]);
     });
 
+    // Y la URL gana sobre el JSON, para calibrar desde el movil:
+    // ?radio=24&alto=20&gap=16&ancho=440  (el "px" es opcional)
+    var ATAJOS = {
+      radio: 'boton-radio',
+      alto: 'boton-padding-y',
+      gap: 'boton-gap',
+      ancho: 'ancho'
+    };
+    Object.keys(ATAJOS).forEach(function (corto) {
+      var m = location.search.match(new RegExp('[?&]' + corto + '=([0-9]+)(px)?'));
+      if (m) {
+        document.documentElement.style.setProperty('--' + ATAJOS[corto], m[1] + 'px');
+      }
+    });
+
     var orden = datos.orden_secciones || ['campana', 'personales', 'permanentes'];
 
     // Si la sección de campaña no se pinta, no hay campaña que reportar:
