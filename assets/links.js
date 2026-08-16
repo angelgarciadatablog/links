@@ -106,7 +106,9 @@
     }
 
     var icono = document.createElement('span');
-    icono.className = 'boton-icono';
+    // El modificador lleva el nombre del icono para poder darle color propio
+    // desde el CSS (hoy solo lo usa whatsapp; ver .boton-icono--whatsapp).
+    icono.className = 'boton-icono' + (boton.icono ? ' boton-icono--' + boton.icono : '');
     icono.setAttribute('aria-hidden', 'true');
     icono.innerHTML = ICONOS[boton.icono] || ICONOS.enlace;
 

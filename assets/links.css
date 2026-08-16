@@ -8,6 +8,7 @@
   --color-texto-suave: #888888;
   --color-texto-cuerpo: #b5b5b5;
   --color-acento: #2563eb;
+  --color-whatsapp: #25d366;
   --fuente: 'Inter', Arial, sans-serif;
 
   /* Medidas del botón. Elegidas probando en iPhone (2026-07-28):
@@ -211,6 +212,15 @@ body::before {
 
 .boton.destacado .boton-icono {
   color: var(--color-acento);
+}
+
+/* El icono de WhatsApp va en su verde de marca: los botones de asesoría
+   son todos del mismo tipo y el gris los dejaba indistinguibles del resto
+   de la lista. Se declara tambien bajo .destacado para que un boton de
+   WhatsApp marcado como destacado no vuelva al azul de acento. */
+.boton-icono--whatsapp,
+.boton.destacado .boton-icono--whatsapp {
+  color: var(--color-whatsapp);
 }
 
 .boton-icono svg {
