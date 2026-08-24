@@ -3,6 +3,7 @@
   "campana_activa": "sql",
   "_orden_secciones_nota": "Para volver a mostrar la campana, agregar \"campana\" a la lista. Los bloques de campanas/ siguen intactos abajo.",
   "orden_secciones": [
+    "campana",
     "personales",
     "asesorias",
     "permanentes"
@@ -88,7 +89,7 @@
     },
     "asesorias": {
       "titulo": "Asesorías",
-      "descripcion": "3 horas · 1 a 1 · presencial en San Miguel o virtual",
+      "descripcion": "1 a 1 · presencial en San Miguel o virtual",
       "botones": [
         {
           "id": "asesoria-automatizacion",
@@ -101,10 +102,10 @@
         },
         {
           "id": "asesoria-sql",
-          "titulo": "Te enseño SQL desde cero en una sesión",
-          "subtitulo": "Con datos reales en la nube",
+          "titulo": "Te enseño SQL en 4 sesiones 1 a 1",
+          "subtitulo": "En vivo, sobre tus propios datos",
           "tipo": "whatsapp",
-          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría de SQL desde cero.",
+          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría de SQL de 4 sesiones.",
           "icono": "whatsapp",
           "activo": true
         },
@@ -137,27 +138,27 @@
   },
   "campanas": {
     "sql": {
-      "nombre": "SQL desde cero",
-      "titulo": "En lo que estoy ahora: SQL desde cero",
-      "descripcion": "El proyecto completo, explicado paso a paso.",
+      "nombre": "Curso de SQL",
+      "titulo": "En lo que estoy ahora: curso de SQL, gratis",
+      "descripcion": "12 bloques sobre una base de datos real.",
       "botones": [
         {
-          "id": "campana-sql-video",
-          "titulo": "Ver el proyecto completo en YouTube",
-          "subtitulo": "Gratis, de principio a fin",
+          "id": "campana-sql-curso",
+          "titulo": "Ver el curso de SQL",
+          "subtitulo": "Gratis, desde cero, con ejercicios resueltos",
           "tipo": "externo",
-          "url": "PENDIENTE_URL_VIDEO_O_PLAYLIST",
-          "icono": "playlist",
+          "url": "https://www.angelgarciadatablog.com/curso-sql/",
+          "icono": "proyecto",
           "destacado": true,
           "activo": true
         },
         {
-          "id": "campana-sql-asesoria",
-          "titulo": "Asesoría full day de SQL",
-          "subtitulo": "4 horas 1 a 1 — escríbeme y lo coordinamos",
-          "tipo": "whatsapp",
-          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría full day de SQL (4 horas).",
-          "icono": "whatsapp",
+          "id": "campana-sql-acceso",
+          "titulo": "Pedir mi acceso a la base de datos",
+          "subtitulo": "PostgreSQL en la nube, sin instalar nada",
+          "tipo": "externo",
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSfZYE86RgobSJXgPTdlPqy_dYvPs8Sa9qGKIkZGvtrRy7yfUg/viewform",
+          "icono": "enlace",
           "destacado": false,
           "activo": true
         }
