@@ -82,6 +82,7 @@
     if (u.indexOf('tiktok.com') !== -1) return 'tiktok';
     if (u.indexOf('linkedin.com') !== -1) return 'linkedin';
     if (u.indexOf('whatsapp.com') !== -1) return 'whatsapp';
+    if (u.indexOf('docs.google.com/forms') !== -1) return 'formulario';
     if (u.indexOf('angelgarciadatablog.com') !== -1) return 'web';
     return 'otro';
   }

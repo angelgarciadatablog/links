@@ -128,8 +128,7 @@
           "id": "sesion-descubrimiento",
           "titulo": "Sesión de descubrimiento — 20 min gratis",
           "subtitulo": "Charlamos qué quieres aprender y por dónde empezar",
-          "tipo": "whatsapp",
-          "mensaje": "Hola Ángel, vengo de tu página de links. Quiero agendar la sesión de descubrimiento de 20 minutos.",
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSfbRVNGQRnyZ11lMeBH_6h8aWJ73Nx7EbMVg2aZ5kKoP2agKA/viewform",
           "icono": "calendario",
           "activo": true
         }
