@@ -16,13 +16,8 @@
     "iniciales": "AG"
   },
   "whatsapp": {
-    "numero_partes": [
-      "51",
-      "967",
-      "130",
-      "241"
-    ],
-    "_nota": "Troceado a proposito: evita que Google y los bots recojan el numero del HTML. Solo digitos, primera parte = codigo de pais (Peru 51), sin +. Ver README seccion 8."
+    "usuario": "angelgarciadatablog",
+    "_nota": "Nombre de usuario de WhatsApp. El enlace wa.me/<usuario> es type=username: el numero no viaja en la URL ni aparece en la pagina de destino, asi que ya no hace falta trocearlo ni escribir el href al interactuar. Quien abre el chat sigue viendo el numero en el perfil hasta que llegue a Peru el interruptor de ocultarlo."
   },
   "secciones": {
     "personales": {

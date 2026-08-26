@@ -26,50 +26,27 @@
     return !valor || PENDIENTE.test(String(valor));
   }
 
-  /* Une los trozos de links.json. Devuelve '' si falta alguno o si hay
-     algo que no sean digitos, para que las guardas oculten los botones
-     en vez de generar un wa.me roto. */
-  function numeroDe(whatsapp) {
-    var partes = (whatsapp && whatsapp.numero_partes) || [];
-    if (!partes.length) return '';
-    var unido = partes.join('');
-    return /^[0-9]{8,15}$/.test(unido) ? unido : '';
+  /* Devuelve '' si falta o trae caracteres que WhatsApp no admite en un
+     usuario (3-35, minusculas, digitos, punto y guion bajo), para que las
+     guardas oculten los botones en vez de generar un wa.me roto. */
+  function usuarioDe(whatsapp) {
+    var u = (whatsapp && whatsapp.usuario) || '';
+    return /^[a-z0-9._]{3,35}$/.test(u) ? u : '';
   }
 
   /* Un botón se muestra si está activo y no tiene valores pendientes.
      La pertenencia a una campaña ya no se filtra aquí: la define
      en qué bloque del JSON vive el botón. */
-  function visible(boton, numeroWhatsapp) {
+  function visible(boton, usuarioWhatsapp) {
     if (boton.activo === false) return false;
-    if (boton.tipo === 'whatsapp') return !esPendiente(numeroWhatsapp);
+    if (boton.tipo === 'whatsapp') return !esPendiente(usuarioWhatsapp);
     return !esPendiente(boton.url);
   }
 
-  function urlDelBoton(boton, numeroWhatsapp) {
+  function urlDelBoton(boton, usuarioWhatsapp) {
     if (boton.tipo !== 'whatsapp') return boton.url;
     var texto = boton.mensaje ? '?text=' + encodeURIComponent(boton.mensaje) : '';
-    return 'https://wa.me/' + numeroWhatsapp + texto;
-  }
-
-  /* Los botones de WhatsApp nacen con href="#" y reciben la URL real recién
-     cuando alguien va a usarlos (mousedown / toque / foco de teclado).
-     Motivo: el numero viaja dentro de la propia URL de wa.me, y los links
-     wa.me publicados en HTML terminan indexados por buscadores. Googlebot
-     renderiza JS pero no dispara eventos de interaccion, asi que nunca ve
-     el numero armado.
-     Es un obstaculo contra bots, NO contra personas: quien haga clic lo vera
-     igual. La proteccion de verdad seria un numero dedicado al negocio. */
-  function armarAlUsar(a, construirUrl) {
-    var listo = false;
-    function armar() {
-      if (listo) return;
-      a.href = construirUrl();
-      listo = true;
-    }
-    ['mousedown', 'touchstart', 'focus', 'keydown'].forEach(function (evento) {
-      a.addEventListener(evento, armar, { passive: true });
-    });
-    return armar;
+    return 'https://wa.me/' + usuarioWhatsapp + texto;
   }
 
   /* Etiqueta de destino para GA4: agrupa clics por plataforma sin
@@ -89,7 +66,6 @@
 
   function crearBoton(boton, contexto) {
     var esWhatsapp = boton.tipo === 'whatsapp';
-    var construirUrl = function () { return urlDelBoton(boton, contexto.numero); };
     var destino = destinoDe(boton, esWhatsapp ? '' : boton.url);
 
     var a = document.createElement('a');
@@ -97,14 +73,11 @@
     a.target = '_blank';
     a.rel = 'noopener';
 
-    // Los de WhatsApp reciben su URL al interactuar; el resto, ya.
-    var armar = null;
-    if (esWhatsapp) {
-      a.href = '#';
-      armar = armarAlUsar(a, construirUrl);
-    } else {
-      a.href = boton.url;
-    }
+    /* Desde 2026-08-26 el href va directo tambien en los de WhatsApp: el
+       enlace es wa.me/<usuario>, no lleva numero, y no hay nada que un bot
+       pueda cosechar del HTML. Antes nacian con href="#" y se armaban al
+       interactuar solo para esconder el numero de Googlebot. */
+    a.href = esWhatsapp ? urlDelBoton(boton, contexto.usuario) : boton.url;
 
     var icono = document.createElement('span');
     // El modificador lleva el nombre del icono para poder darle color propio
@@ -138,10 +111,6 @@
     a.appendChild(flecha);
 
     a.addEventListener('click', function () {
-      // Red de seguridad: si ningun evento previo disparo (clic sintetico,
-      // lector de pantalla), se arma aqui antes de que el navegador navegue.
-      if (armar) armar();
-
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'link_click',
@@ -162,7 +131,7 @@
     if (!datosSeccion) return null;
 
     var visibles = (datosSeccion.botones || []).filter(function (b) {
-      return visible(b, estado.numero);
+      return visible(b, estado.usuario);
     });
     if (visibles.length === 0) return null;
 
@@ -190,7 +159,7 @@
       lista.appendChild(crearBoton(boton, {
         seccion: idSeccion,
         posicion: i + 1,
-        numero: estado.numero,
+        usuario: estado.usuario,
         campanaActiva: estado.campanaActiva
       }));
       estado.total++;
@@ -232,7 +201,7 @@
 
     var estado = {
       campanaActiva: hayCampana ? (datos.campana_activa || '') : '',
-      numero: numeroDe(datos.whatsapp),
+      usuario: usuarioDe(datos.whatsapp),
       total: 0
     };
 
