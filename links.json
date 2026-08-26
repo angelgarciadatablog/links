@@ -89,7 +89,7 @@
     },
     "asesorias": {
       "titulo": "Asesorías",
-      "descripcion": "1 a 1 · presencial en San Miguel o virtual",
+      "descripcion": "Servicios de pago · 1 a 1 · presencial en San Miguel o virtual",
       "botones": [
         {
           "id": "asesoria-automatizacion",
@@ -138,7 +138,7 @@
   "campanas": {
     "sql": {
       "nombre": "Curso de SQL",
-      "titulo": "En lo que estoy ahora: curso de SQL, gratis",
+      "titulo": "En lo que estoy ahora: curso de SQL",
       "descripcion": "12 bloques sobre una base de datos real.",
       "botones": [
         {
