@@ -90,10 +90,10 @@
           "id": "asesoria-sql-1a1",
           "titulo": "Tú eliges el tema de SQL",
           "subtitulo": "Te lo enseño en hora y media · S/ 30",
-          "tipo": "whatsapp",
-          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría personalizada de SQL de hora y media.",
-          "icono": "whatsapp",
-          "activo": true
+          "tipo": "externo",
+          "icono": "enlace",
+          "activo": true,
+          "url": "https://www.angelgarciadatablog.com/sesion-sql/"
         },
         {
           "id": "asesoria-automatizacion",
@@ -123,7 +123,7 @@
           "activo": false
         }
       ],
-      "_nota_landing": "El boton apunta a WhatsApp de forma provisional. Cuando exista la landing de venta en angelgarciadatablog.com/sesion-sql/ se cambia por tipo 'externo' + url, y se borra el campo 'mensaje'.",
+      "_nota_landing": "El boton apunta a la landing de venta /sesion-sql/ desde el 2026-09-05. El lead ya no se cuenta aqui: link_destino pasa a 'web' y generate_lead lo dispara la landing, en sus dos botones de WhatsApp (link_id sesion-sql-wa-selector / -cierre).",
       "titulo_acento": true
     },
     "permanentes": {
