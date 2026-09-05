@@ -136,7 +136,11 @@
     if (visibles.length === 0) return null;
 
     var seccion = document.createElement('section');
-    seccion.className = 'seccion seccion--' + idSeccion;
+    /* El marco sigue atado a .seccion--campana; el titulo en color de
+       acento se separo el 2026-09-05 a su propia bandera, para poder
+       marcar un bloque de oferta sin encuadrarlo. */
+    seccion.className = 'seccion seccion--' + idSeccion
+      + (datosSeccion.titulo_acento ? ' seccion--titulo-acento' : '');
 
     if (datosSeccion.titulo) {
       var h2 = document.createElement('h2');

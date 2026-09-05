@@ -17,7 +17,7 @@
   --ancho: 480px;
   --boton-padding-y: 18px;
   --boton-radio: 28px;
-  --boton-gap: 14px;
+  --boton-gap: 11px;
 
   /* Piel del botón */
   --color-boton: #1f1f1f;
@@ -60,19 +60,19 @@ body::before {
   z-index: 1;
   max-width: var(--ancho);
   margin: 0 auto;
-  padding: 56px 20px 64px;
+  padding: 22px 20px 44px;
 }
 
 /* PERFIL */
 .perfil {
   text-align: center;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 
 .perfil-avatar {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 18px;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 9px;
   border-radius: 50%;
   border: 2px solid var(--color-borde);
   background-color: var(--color-superficie);
@@ -97,10 +97,11 @@ body::before {
   font-size: 26px;
   font-weight: 600;
   letter-spacing: -0.3px;
+  line-height: 1.25;
 }
 
 .perfil-tagline {
-  margin-top: 10px;
+  margin-top: 7px;
   font-size: 15px;
   color: var(--color-texto-cuerpo);
   max-width: 420px;
@@ -112,7 +113,7 @@ body::before {
 .secciones {
   display: flex;
   flex-direction: column;
-  gap: 34px;
+  gap: 22px;
 }
 
 .seccion-titulo {
@@ -121,28 +122,30 @@ body::before {
   text-transform: uppercase;
   letter-spacing: 1.2px;
   color: var(--color-texto-suave);
-  margin-bottom: 12px;
+  margin-bottom: 9px;
   padding-left: 2px;
 }
 
 .seccion-descripcion {
   font-size: 13.5px;
   color: var(--color-texto-cuerpo);
-  margin-top: -6px;
-  margin-bottom: 12px;
+  margin-top: -5px;
+  margin-bottom: 9px;
   padding-left: 2px;
 }
 
-/* La sección de campaña es la que recibe el trafico de TikTok:
-   se separa del resto con un marco propio y el titulo en color de acento. */
+/* La sección de campaña es la que recibe el trafico de TikTok: se separa del
+   resto con un marco propio. El titulo en color de acento ya no viene de aqui
+   — lo enciende "titulo_acento": true en el JSON, que desde 2026-09-05 llevan
+   los tres bloques de oferta aunque solo el primero tenga marco. */
 .seccion--campana {
-  padding: 20px 18px 18px;
+  padding: 15px 14px 14px;
   border: 1px solid rgba(37, 99, 235, 0.30);
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(37, 99, 235, 0.07) 0%, rgba(37, 99, 235, 0) 100%);
 }
 
-.seccion--campana .seccion-titulo {
+.seccion--titulo-acento .seccion-titulo {
   color: var(--color-acento);
   font-size: 13px;
   text-transform: none;
@@ -299,21 +302,21 @@ body::before {
 
 @media (max-width: 520px) {
   .links-page {
-    padding: 40px 16px 48px;
+    padding: 16px 16px 32px;
   }
 
   .secciones {
-    gap: 28px;
+    gap: 20px;
   }
 
   .seccion--campana {
-    padding: 18px 14px 16px;
+    padding: 14px 12px 12px;
   }
 
   .perfil-avatar {
-    width: 84px;
-    height: 84px;
-    font-size: 28px;
+    width: 76px;
+    height: 76px;
+    font-size: 26px;
   }
 
   .perfil-nombre {

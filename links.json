@@ -1,12 +1,12 @@
 {
   "_comentario": "Fuente de verdad de la pagina. Editar SOLO este archivo. Ver README.md.",
   "campana_activa": "sql",
-  "_orden_secciones_nota": "Para volver a mostrar la campana, agregar \"campana\" a la lista. Los bloques de campanas/ siguen intactos abajo.",
+  "_orden_secciones_nota": "Orden decidido el 2026-09-05: los tres bloques de oferta primero (curso gratis, asesoria de pago, sesion gratuita), cada uno con marco y UN SOLO boton, y las redes al final. Sacar una seccion de esta lista la oculta sin borrar sus datos.",
   "orden_secciones": [
     "campana",
-    "personales",
     "asesorias",
-    "permanentes"
+    "permanentes",
+    "personales"
   ],
   "perfil": {
     "nombre": "Ángel García",
@@ -83,9 +83,18 @@
       ]
     },
     "asesorias": {
-      "titulo": "Asesorías",
-      "descripcion": "Servicios de pago · 1 a 1 · presencial en San Miguel o virtual",
+      "titulo": "Asesoría de SQL — de pago",
+      "descripcion": "Sesión 1 a 1, virtual, hecha a tu medida.",
       "botones": [
+        {
+          "id": "asesoria-sql-1a1",
+          "titulo": "Tú eliges el tema de SQL",
+          "subtitulo": "Te lo enseño en hora y media · S/ 30",
+          "tipo": "whatsapp",
+          "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría personalizada de SQL de hora y media.",
+          "icono": "whatsapp",
+          "activo": true
+        },
         {
           "id": "asesoria-automatizacion",
           "titulo": "Te enseño a automatizar lo que hoy haces a mano",
@@ -93,7 +102,7 @@
           "tipo": "whatsapp",
           "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría para automatizar procesos.",
           "icono": "whatsapp",
-          "activo": true
+          "activo": false
         },
         {
           "id": "asesoria-sql",
@@ -102,7 +111,7 @@
           "tipo": "whatsapp",
           "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría de SQL de 4 sesiones.",
           "icono": "whatsapp",
-          "activo": true
+          "activo": false
         },
         {
           "id": "asesoria-portafolio",
@@ -111,30 +120,33 @@
           "tipo": "whatsapp",
           "mensaje": "Hola Ángel, vengo de tu página de links. Me interesa la asesoría para armar mi portafolio.",
           "icono": "whatsapp",
-          "activo": true
+          "activo": false
         }
-      ]
+      ],
+      "_nota_landing": "El boton apunta a WhatsApp de forma provisional. Cuando exista la landing de venta en angelgarciadatablog.com/sesion-sql/ se cambia por tipo 'externo' + url, y se borra el campo 'mensaje'.",
+      "titulo_acento": true
     },
     "permanentes": {
-      "titulo": "¿Hablamos?",
-      "descripcion": "",
+      "titulo": "Sesión de descubrimiento — gratis",
+      "descripcion": "20 minutos para ver por dónde te conviene empezar.",
       "botones": [
         {
           "id": "sesion-descubrimiento",
-          "titulo": "Sesión de descubrimiento — 20 min gratis",
-          "subtitulo": "Charlamos qué quieres aprender y por dónde empezar",
+          "titulo": "Agendar mi sesión gratuita",
+          "subtitulo": "Primero un formulario, luego eliges la hora",
           "url": "https://docs.google.com/forms/d/e/1FAIpQLSfbRVNGQRnyZ11lMeBH_6h8aWJ73Nx7EbMVg2aZ5kKoP2agKA/viewform",
           "icono": "calendario",
           "activo": true
         }
-      ]
+      ],
+      "titulo_acento": true
     }
   },
   "campanas": {
     "sql": {
       "nombre": "Curso de SQL",
-      "titulo": "En lo que estoy ahora: curso de SQL",
-      "descripcion": "12 bloques sobre una base de datos real.",
+      "titulo": "Curso de SQL — gratis",
+      "descripcion": "12 bloques en abierto sobre una base de datos real.",
       "botones": [
         {
           "id": "campana-sql-curso",
@@ -154,9 +166,11 @@
           "url": "https://docs.google.com/forms/d/e/1FAIpQLSfZYE86RgobSJXgPTdlPqy_dYvPs8Sa9qGKIkZGvtrRy7yfUg/viewform",
           "icono": "enlace",
           "destacado": false,
-          "activo": true
+          "activo": false,
+          "_nota": "Oculto el 2026-09-05: cada bloque de arriba lleva un solo boton. El formulario sigue enlazado dentro de /curso-sql/, verificado en produccion."
         }
-      ]
+      ],
+      "titulo_acento": true
     },
     "google-analytics": {
       "nombre": "Google Analytics",
@@ -239,5 +253,6 @@
         }
       ]
     }
-  }
+  },
+  "_titulo_acento_nota": "titulo_acento: true pinta el titulo de la seccion en azul de acento y en caja normal (no mayusculas). Es independiente del marco, que solo lleva la seccion de campana."
 }
