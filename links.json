@@ -1,16 +1,15 @@
 {
   "_comentario": "Fuente de verdad de la pagina. Editar SOLO este archivo. Ver README.md.",
   "campana_activa": "sql",
-  "_orden_secciones_nota": "Orden decidido el 2026-09-05: los tres bloques de oferta primero (curso gratis, asesoria de pago, sesion gratuita), cada uno con marco y UN SOLO boton, y las redes al final. Sacar una seccion de esta lista la oculta sin borrar sus datos.",
+  "_orden_secciones_nota": "Orden 2026-10-08: curso de SQL, clases de SQL y las redes al final. Los bloques de SQL van sin titulo, sin marco y sin descripcion: lo que se ofrece lo dice el boton, con su 'etiqueta' (- Gratuito resaltado, - De pago sin resaltar). La sesion de descubrimiento gratuita (permanentes) se saco de la lista: no hay tiempo para darlas. Sacar una seccion de esta lista la oculta sin borrar sus datos.",
   "orden_secciones": [
     "campana",
     "asesorias",
-    "permanentes",
     "personales"
   ],
   "perfil": {
     "nombre": "Ángel García",
-    "tagline": "Aprender datos y cloud no tiene que ser difícil — aquí lo explico todo con ejemplos reales y paso a paso.",
+    "tagline": "",
     "avatar": "./img/perfil.png",
     "_avatar_nota": "Copia local optimizada (256px) del original en storage.googleapis.com/angel-assets/profile/. Si se cambia la foto alla, hay que volver a copiarla aqui.",
     "iniciales": "AG"
@@ -83,17 +82,18 @@
       ]
     },
     "asesorias": {
-      "titulo": "Asesoría de SQL — de pago",
-      "descripcion": "Sesión 1 a 1, virtual, hecha a tu medida.",
+      "titulo": "",
+      "descripcion": "",
       "botones": [
         {
           "id": "asesoria-sql-1a1",
-          "titulo": "Tú eliges el tema de SQL",
-          "subtitulo": "Te lo enseño en hora y media · S/ 30",
+          "titulo": "Tú eliges los temas de SQL",
+          "subtitulo": "Desde 10 dólares",
           "tipo": "externo",
           "icono": "enlace",
           "activo": true,
-          "url": "https://www.angelgarciadatablog.com/sesion-sql/"
+          "url": "https://www.angelgarciadatablog.com/sesion-sql/",
+          "etiqueta": "- De pago"
         },
         {
           "id": "asesoria-automatizacion",
@@ -123,8 +123,7 @@
           "activo": false
         }
       ],
-      "_nota_landing": "El boton apunta a la landing de venta /sesion-sql/ desde el 2026-09-05. El lead ya no se cuenta aqui: link_destino pasa a 'web' y generate_lead lo dispara la landing, en sus dos botones de WhatsApp (link_id sesion-sql-wa-selector / -cierre).",
-      "titulo_acento": true
+      "_nota_landing": "El boton apunta a la landing de venta /sesion-sql/ desde el 2026-09-05. El lead ya no se cuenta aqui: link_destino pasa a 'web' y generate_lead lo dispara la landing, en sus dos botones de WhatsApp (link_id sesion-sql-wa-selector / -cierre)."
     },
     "permanentes": {
       "titulo": "Sesión de descubrimiento — gratis",
@@ -145,18 +144,20 @@
   "campanas": {
     "sql": {
       "nombre": "Curso de SQL",
-      "titulo": "Curso de SQL — gratis",
-      "descripcion": "12 bloques en abierto sobre una base de datos real.",
+      "titulo": "",
+      "descripcion": "",
       "botones": [
         {
           "id": "campana-sql-curso",
-          "titulo": "Ver el curso de SQL",
+          "titulo": "Curso de SQL",
           "subtitulo": "Desde cero, con ejercicios resueltos",
           "tipo": "externo",
           "url": "https://www.angelgarciadatablog.com/curso-sql/",
           "icono": "proyecto",
           "destacado": true,
-          "activo": true
+          "activo": true,
+          "etiqueta": "- Gratuito",
+          "etiqueta_resaltada": true
         },
         {
           "id": "campana-sql-acceso",
@@ -169,8 +170,7 @@
           "activo": false,
           "_nota": "Oculto el 2026-09-05: cada bloque de arriba lleva un solo boton. El formulario sigue enlazado dentro de /curso-sql/, verificado en produccion."
         }
-      ],
-      "titulo_acento": true
+      ]
     },
     "google-analytics": {
       "nombre": "Google Analytics",

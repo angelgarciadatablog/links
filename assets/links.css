@@ -134,17 +134,9 @@ body::before {
   padding-left: 2px;
 }
 
-/* La sección de campaña es la que recibe el trafico de TikTok: se separa del
-   resto con un marco propio. El titulo en color de acento ya no viene de aqui
-   — lo enciende "titulo_acento": true en el JSON, que desde 2026-09-05 llevan
-   los tres bloques de oferta aunque solo el primero tenga marco. */
-.seccion--campana {
-  padding: 15px 14px 14px;
-  border: 1px solid rgba(37, 99, 235, 0.30);
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(37, 99, 235, 0.07) 0%, rgba(37, 99, 235, 0) 100%);
-}
-
+/* Desde 2026-10-08 ningún bloque lleva marco ni título en color de acento:
+   todos se leen igual que "Dónde encontrarme". La bandera titulo_acento
+   sigue funcionando por si un bloque vuelve a necesitarla. */
 .seccion--titulo-acento .seccion-titulo {
   color: var(--color-acento);
   font-size: 13px;
@@ -247,6 +239,21 @@ body::before {
   line-height: 1.35;
 }
 
+/* Etiqueta de texto junto al título, sin píldora ni fondo. */
+.boton-etiqueta {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+/* Azul claro y no el --color-acento: sobre el gris del botón el azul
+   oscuro se lee mal en un texto tan pequeño. */
+.boton-etiqueta--resaltada {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
 .boton-subtitulo {
   font-size: 13px;
   color: var(--color-texto-suave);
@@ -307,10 +314,6 @@ body::before {
 
   .secciones {
     gap: 20px;
-  }
-
-  .seccion--campana {
-    padding: 14px 12px 12px;
   }
 
   .perfil-avatar {

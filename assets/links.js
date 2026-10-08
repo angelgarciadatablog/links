@@ -92,6 +92,17 @@
     var titulo = document.createElement('span');
     titulo.className = 'boton-titulo';
     titulo.textContent = boton.titulo;
+
+    /* Etiqueta junto al título ("GRATIS", "De pago"). Con
+       etiqueta_resaltada va en el azul de acento; sin ella, en gris. */
+    if (boton.etiqueta) {
+      var etiqueta = document.createElement('span');
+      etiqueta.className = 'boton-etiqueta'
+        + (boton.etiqueta_resaltada ? ' boton-etiqueta--resaltada' : '');
+      etiqueta.textContent = boton.etiqueta;
+      titulo.appendChild(etiqueta);
+    }
+
     texto.appendChild(titulo);
 
     if (boton.subtitulo) {
@@ -189,7 +200,10 @@
     }
 
     document.getElementById('perfil-nombre').textContent = perfil.nombre || '';
-    document.getElementById('perfil-tagline').textContent = perfil.tagline || '';
+    const tagline = document.getElementById('perfil-tagline');
+    tagline.textContent = perfil.tagline || '';
+    // Sin tagline no queda un párrafo vacío ocupando su margen
+    tagline.hidden = !perfil.tagline;
     if (perfil.nombre) document.title = perfil.nombre + ' — Links';
   }
 
